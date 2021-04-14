@@ -64,7 +64,7 @@ class EchoBot(KikClientCallback):
 
     def on_group_message_received(self, chat_message: chatting.IncomingGroupChatMessage):
      #   print("[+] '{}' from group ID {} says: {}".format(chat_message.from_jid, chat_message.group_jid,
-                                                          chat_message.body))
+                                                     #     chat_message.body))
 
         prefix = '.'
         if chat_message.body.lower().startswith(prefix + 'spam '):
