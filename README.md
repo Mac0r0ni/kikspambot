@@ -9,10 +9,10 @@ If you are using [Termux](https://termux.com/), then use `pkg install libxml2 li
 ## Installation ## (this may take a while so be patient)
 $ git clone -b new https://github.com/Sitiaro/Spambot **
 
-$ pip3 install ./Spambot
+$ pip3 install ./kikspambot
 
 ## Usage ##
-$ cd Spambot
+$ cd kikspambot
 
 $ python spambot.py
 
