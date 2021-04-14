@@ -80,7 +80,7 @@ class EchoBot(KikClientCallback):
 
   #  def on_group_is_typing_event_received(self, response: chatting.IncomingGroupIsTypingEvent):
   #      print("[+] {} is now {}typing in group {}".format(response.from_jid, "not " if not response.is_typing else "",
-                                                          response.group_jid))
+                                                        #  response.group_jid))
 
     def on_roster_received(self, response: FetchRosterResponse):
         print("[+] Chat partners:\n" + '\n'.join([str(member) for member in response.peers]))
