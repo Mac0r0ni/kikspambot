@@ -8,10 +8,12 @@ If you are using [Termux](https://termux.com/), then use `pkg install libxml2 li
 
 ## Installation ## (this may take a while so be patient)
 $ git clone -b new https://github.com/Sitiaro/Spambot **
+
 $ pip3 install ./Spambot
 
 ## Usage ##
 $ cd Spambot
+
 $ python spambot.py
 
 Login with the username and password of your spam account, add it to your friend list by typing 'friend' in the bot's dms and add it to the chat you want to spam. Once you do so, use .spam (no. of messages) to spam the chat.
