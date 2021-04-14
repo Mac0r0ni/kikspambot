@@ -6,7 +6,7 @@ and echos back whatever chat messages it receives.
 
 import logging
 import sys
-
+import time
 import kik_unofficial.datatypes.xmpp.chatting as chatting
 from kik_unofficial.client import KikClient
 from kik_unofficial.callbacks import KikClientCallback
@@ -56,14 +56,14 @@ class EchoBot(KikClientCallback):
         else:
             self.client.send_chat_message(chat_message.from_jid, '''Use 'friend' to add me to your friend list''')
 
-    def on_message_delivered(self, response: chatting.IncomingMessageDeliveredEvent):
-        print("[+] Chat message with ID {} is delivered.".format(response.message_id))
+  #  def on_message_delivered(self, response: chatting.IncomingMessageDeliveredEvent):
+  #      print("[+] Chat message with ID {} is delivered.".format(response.message_id))
 
-    def on_message_read(self, response: chatting.IncomingMessageReadEvent):
-        print("[+] Human has read the message with ID {}.".format(response.message_id))
+  #  def on_message_read(self, response: chatting.IncomingMessageReadEvent):
+  #      print("[+] Human has read the message with ID {}.".format(response.message_id))
 
     def on_group_message_received(self, chat_message: chatting.IncomingGroupChatMessage):
-        print("[+] '{}' from group ID {} says: {}".format(chat_message.from_jid, chat_message.group_jid,
+     #   print("[+] '{}' from group ID {} says: {}".format(chat_message.from_jid, chat_message.group_jid,
                                                           chat_message.body))
 
         prefix = '.'
@@ -72,12 +72,14 @@ class EchoBot(KikClientCallback):
             spamm = int(spam)
             for i in range(spamm):
                 self.client.send_chat_message(chat_message.group_jid, '999'*646+'.'+'99'*10+'.'+'99999'*5+'.'+'99999'*10)
+                time.sleep(0.5)
 
-    def on_is_typing_event_received(self, response: chatting.IncomingIsTypingEvent):
-        print("[+] {} is now {}typing.".format(response.from_jid, "not " if not response.is_typing else ""))
+#unnecessary
+   # def on_is_typing_event_received(self, response: chatting.IncomingIsTypingEvent):
+   #     print("[+] {} is now {}typing.".format(response.from_jid, "not " if not response.is_typing else ""))
 
-    def on_group_is_typing_event_received(self, response: chatting.IncomingGroupIsTypingEvent):
-        print("[+] {} is now {}typing in group {}".format(response.from_jid, "not " if not response.is_typing else "",
+  #  def on_group_is_typing_event_received(self, response: chatting.IncomingGroupIsTypingEvent):
+  #      print("[+] {} is now {}typing in group {}".format(response.from_jid, "not " if not response.is_typing else "",
                                                           response.group_jid))
 
     def on_roster_received(self, response: FetchRosterResponse):
@@ -92,11 +94,11 @@ class EchoBot(KikClientCallback):
     def on_peer_info_received(self, response: PeersInfoResponse):
         print("[+] Peer info: " + str(response.users))
 
-    def on_group_status_received(self, response: chatting.IncomingGroupStatus):
-        print("[+] Status message in {}: {}".format(response.group_jid, response.status))
+  #  def on_group_status_received(self, response: chatting.IncomingGroupStatus):
+  #      print("[+] Status message in {}: {}".format(response.group_jid, response.status))
 
-    def on_group_receipts_received(self, response: chatting.IncomingGroupReceiptsEvent):
-        print("[+] Received receipts in group {}: {}".format(response.group_jid, ",".join(response.receipt_ids)))
+  #  def on_group_receipts_received(self, response: chatting.IncomingGroupReceiptsEvent):
+  #      print("[+] Received receipts in group {}: {}".format(response.group_jid, ",".join(response.receipt_ids)))
 
     def on_status_message_received(self, response: chatting.IncomingStatusResponse):
         print("[+] Status message from {}: {}".format(response.from_jid, response.status))
