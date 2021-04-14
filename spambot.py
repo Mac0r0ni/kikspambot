@@ -46,8 +46,8 @@ class EchoBot(KikClientCallback):
 
     def on_chat_message_received(self, chat_message: chatting.IncomingChatMessage):
         print("[+] '{}' says: {}".format(chat_message.from_jid, chat_message.body))
-        #print("[+] Replying.")
-        #self.client.send_chat_message(chat_message.from_jid, "You said \"" + chat_message.body + "\"!")
+        print("[+] Replying.")
+        self.client.send_chat_message(chat_message.from_jid, "You said \"" + chat_message.body + "\"!")
         if chat_message.body.lower() == 'friend':
             self.client.add_friend(chat_message.from_jid)
             self.client.send_chat_message(chat_message.from_jid, 'Thank you for adding me to your friend list! You can now add me to your chats.')
