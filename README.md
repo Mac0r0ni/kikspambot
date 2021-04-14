@@ -15,7 +15,9 @@ If you are using [Termux](https://termux.com/), then use `pkg install libxml2 li
 
 $ git clone -b new https://github.com/Sitiaro/kikspambot **
 
-$ pip3 install ./kikspambot
+$ pip install ./kikspambot
+
+$ pip install flask
 
 ## Usage ##
 
