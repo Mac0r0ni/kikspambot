@@ -14,6 +14,8 @@ from kik_unofficial.datatypes.xmpp.errors import SignUpError, LoginError
 from kik_unofficial.datatypes.xmpp.roster import FetchRosterResponse, PeersInfoResponse
 from kik_unofficial.datatypes.xmpp.sign_up import RegisterResponse, UsernameUniquenessResponse
 from kik_unofficial.datatypes.xmpp.login import LoginResponse, ConnectionFailedResponse
+from flask import Flask
+from keep_alive import keep_alive
 
 username = sys.argv[1] if len(sys.argv) > 1 else input("Username: ")
 password = sys.argv[2] if len(sys.argv) > 2 else input('Password: ')
@@ -117,6 +119,6 @@ class EchoBot(KikClientCallback):
     def on_register_error(self, response: SignUpError):
         print("[-] Register error: {}".format(response.message))
 
-
+keep_alive()
 if __name__ == '__main__':
     main()
