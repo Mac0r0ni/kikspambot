@@ -15,7 +15,7 @@ from kik_unofficial.datatypes.xmpp.roster import FetchRosterResponse, PeersInfoR
 from kik_unofficial.datatypes.xmpp.sign_up import RegisterResponse, UsernameUniquenessResponse
 from kik_unofficial.datatypes.xmpp.login import LoginResponse, ConnectionFailedResponse
 #from flask import Flask
-from keep_alive import keep_alive
+#from keep_alive import keep_alive
 
 username = sys.argv[1] if len(sys.argv) > 1 else input("Username: ")
 password = sys.argv[2] if len(sys.argv) > 2 else input('Password: ')
