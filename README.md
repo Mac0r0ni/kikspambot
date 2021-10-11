@@ -1,4 +1,5 @@
 # Kik Bot API #
+#ping#
 
 This is a modification to kik-bot-api-unofficial and can be used as a spam bot.
 
